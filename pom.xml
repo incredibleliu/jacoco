@@ -15,8 +15,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		    <maven.compiler.source>1.8</maven.compiler.source>
-   			 <maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+   		<maven.compiler.target>1.8</maven.compiler.target>
+   		
+   		<sonar.sources>src/main</sonar.sources>
+		<sonar.tests>src/test</sonar.tests>
+		<!-- Below property indicates the pattern of the test suite
+		<runSuite>**/*Suite.class</runSuite>
+		 -->
+		<!-- Sonar-JaCoCo properties -->
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.build.directory}/coverage-reports/jacoco-ut.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
 	</properties>
 	
 	<dependencies>
@@ -142,10 +153,10 @@
     <configuration>
     	<excludes>
     	
-    		
+    		<!-- 
             <exclude>junit/MyMath*</exclude>
  			
- 			<!-- 
+ 			
             <exclude>com/acme/api/*Api.class</exclude>
  
             <exclude>com/acme/generated/**/*</exclude>
